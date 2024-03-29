@@ -1,0 +1,57 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Parametric Continuity
+
+Parametric continuity is a crucial concept in the world of splines, as it determines the smoothness of the curves and their derivatives at the joints between curve segments. Understanding parametric continuity is essential for creating visually appealing and mathematically sound splines in various applications, such as computer graphics, animation, and CAD/CAM systems.
+
+## Levels of Parametric Continuity
+
+Parametric continuity is denoted by the symbol C followed by a superscript number (e.g., C⁰, C¹, C², C³) indicating the level of continuity. Each level builds upon the previous one, ensuring that the curve and its derivatives up to that level are continuous at the joints.
+
+### C⁰ Continuity (Positional Continuity)
+
+C⁰ continuity, also known as positional continuity, is the most basic level of continuity. It ensures that the curves connect at the joints, without any gaps or breaks. In other words, the end point of one curve segment coincides with the start point of the next segment.
+
+<Callout emoji="ℹ️">
+C⁰ continuity is a prerequisite for all higher levels of parametric continuity. If a spline is not C⁰ continuous, it cannot be classified under any other continuity class.
+</Callout>
+
+### C¹ Continuity (Velocity Continuity)
+
+C¹ continuity, or velocity continuity, requires that the first derivative (velocity) of the curve is continuous at the joints. This means that not only the positions match, but the tangent lines at the joints are also aligned. C¹ continuity ensures a smooth transition between curve segments, without any sudden changes in direction.
+
+To achieve C¹ continuity in a cubic Bézier spline, the [tangent points](/bezier-splines/spline-anatomy) on either side of a joint must be collinear with the joint point itself. This is often referred to as the "mirror tangent" condition.
+
+### C² Continuity (Acceleration Continuity)
+
+C² continuity, or acceleration continuity, requires that both the first and second derivatives (velocity and acceleration) of the curve are continuous at the joints. This level of continuity ensures that there are no sudden changes in the rate of change of direction, resulting in an even smoother transition between curve segments.
+
+However, achieving C² continuity in a cubic Bézier spline comes at a cost. The control points must satisfy additional constraints, which can lead to a [cascading loss of local control](/bezier-splines/local-control-flexibility). In fact, it is impossible to maintain C² continuity in a cubic Bézier spline without sacrificing local control entirely.
+
+### C³ Continuity (Jolt Continuity) and Beyond
+
+C³ continuity, or jolt continuity, requires that the first, second, and third derivatives of the curve are continuous at the joints. This level of continuity is rarely used in practice, as the visual benefits are often negligible compared to the increased complexity and loss of control.
+
+Higher levels of parametric continuity (C⁴, C⁵, etc.) follow the same pattern, ensuring the continuity of successive derivatives at the joints. In theory, a curve can be C^∞^ continuous, meaning that all its derivatives are continuous at every point along the curve.
+
+<Callout emoji="💡">
+When working with splines, it's essential to find a balance between the desired level of continuity and the need for local control. In most cases, C¹ or [G¹ geometric continuity](/continuity/geometric-continuity) is sufficient for creating visually pleasing and practically useful splines.
+</Callout>
+
+## Analyzing Parametric Continuity
+
+To analyze the parametric continuity of a spline, you can follow these steps:
+
+<Steps>
+
+### Step 1: Check for C⁰ continuity
+Verify that the curves connect at the joints without any gaps or breaks. If the spline fails this test, it cannot be classified under any continuity class.
+
+### Step 2: Examine the first derivative (velocity)
+Check if the velocity vectors at the joints are aligned. You can do this by comparing the tangent lines on either side of each joint. If they are collinear, the spline is at least C¹ continuous.
+
+### Step 3: Analyze higher-order derivatives
+If needed, examine the continuity of higher-order derivatives (acceleration, jolt, etc.) at the joints. Keep in mind that each level of continuity requires the continuity of all lower-order derivatives as well.
+</Steps>
+
+By understanding and applying the principles of parametric continuity, you can create splines that are smooth, visually appealing, and suitable for a wide range of applications in computer graphics, animation, and design.

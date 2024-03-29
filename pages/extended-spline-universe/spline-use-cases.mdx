@@ -1,0 +1,71 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Spline Use Cases
+
+Splines have a wide range of applications in various fields, from computer graphics and animation to industrial design and beyond. Let's explore some of the most common use cases for different spline types.
+
+## Bézier Splines in Vector Graphics and Fonts
+
+Bézier splines, particularly cubic Bézier splines, are the go-to choice for creating smooth, precise shapes in vector graphics and font design. Their ability to create sharp corners and smooth curves makes them ideal for crafting intricate designs.
+
+<Callout emoji="💡">
+  Popular vector graphics tools like Adobe Illustrator and Inkscape heavily rely on Bézier splines for their pen and path tools.
+</Callout>
+
+### Example: Creating a Custom Font
+
+<Steps>
+
+### Step 1: Sketch the font characters
+Start by sketching the desired font characters on paper or using a digital drawing tablet.
+
+### Step 2: Create outlines using Bézier splines
+In a vector graphics software, use the pen tool to create outlines of the font characters using Bézier splines. Adjust the control points to refine the shapes.
+
+### Step 3: Refine and export
+Fine-tune the Bézier splines to achieve the desired look, and export the font in a format like TTF or OTF for use in various applications.
+
+</Steps>
+
+## Hermite and Catmull-Rom Splines in Animation
+
+Hermite splines and their variation, Catmull-Rom splines, are widely used in animation due to their ability to interpolate points with specific velocities and create smooth, natural-looking motion.
+
+### Example: Animating a Bouncing Ball
+
+To animate a bouncing ball using a Hermite spline:
+
+1. Define key positions and velocities for the ball at specific times (e.g., the top and bottom of the bounce).
+2. Use a Hermite spline to interpolate the ball's position between these key points, ensuring smooth velocity transitions.
+3. Render the ball at each interpolated position to create the animation frames.
+
+## B-Splines in Industrial Design
+
+B-splines, with their higher levels of continuity, are invaluable in industrial design for creating smooth, reflection-friendly surfaces. They are commonly used in designing car bodies, consumer electronics, and other products where surface smoothness is crucial.
+
+<Callout emoji="🚗">
+  Car manufacturers like BMW and Mercedes-Benz employ B-splines in their CAD software to design sleek, aerodynamic car bodies.
+</Callout>
+
+## Splines in Game Development
+
+Various spline types find applications in game development, from creating smooth camera paths to defining race tracks and character animations.
+
+### Example: Creating a Smooth Camera Path
+
+<Steps>
+
+### Step 1: Place control points
+In a game engine or level editor, place control points to define the desired camera path.
+
+### Step 2: Choose a suitable spline type
+Select a spline type (e.g., Catmull-Rom or Bézier) based on the desired smoothness and control over the path.
+
+### Step 3: Implement camera movement
+Use the chosen spline to interpolate the camera's position and orientation along the path during gameplay, creating a smooth, cinematic camera movement.
+
+</Steps>
+
+These are just a few examples of the many ways splines are used in various industries. By understanding the properties and strengths of each spline type, you can choose the most appropriate one for your specific use case, whether it's creating smooth animations, designing sleek products, or enhancing the visual experience in games.
+
+For more information on the different spline types and their properties, check out the sections on [Bézier Splines](/bezier-splines), [Hermite Splines](/extended-spline-universe/hermite-splines), [Cardinal and Catmull-Rom Splines](/extended-spline-universe/cardinal-catmull-rom-splines), and [B-Splines](/extended-spline-universe/b-splines).

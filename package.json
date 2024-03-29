@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@types/node": "^20.11.30",
+    "next": "^14.1.4",
+    "nextra": "^2.13.4",
+    "nextra-theme-docs": "^2.13.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.3"
+  },
+  "name": "The-with-lumentis",
+  "description": "In this comprehensive video, Freya Holmér takes us on a deep dive into the world of splines, exploring their continuity, mathematical foundations, and practical applications. From Bézier curves to Hermite and B-splines, she unveils the intricacies of these essential tools used in computer graphics, game development, and industrial design. Through engaging explanations and visual demonstrations, Freya illuminates the concepts of parametric and geometric continuity, showcasing how different spline types achieve smoothness and control. This in-depth exploration is a must-watch for anyone interested in the mathematics behind curves and their impact on digital art and design.",
+  "version": "0.0.1",
+  "scripts": {
+    "devstart": "next dev -p 5656 & node start.js",
+    "dev": "next dev -p 5656",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "Splines",
+    "Bézier curves",
+    "Continuity",
+    "Parametric continuity",
+    "Geometric continuity",
+    "Hermite splines",
+    "Cardinal splines",
+    "Catmull-Rom splines",
+    "B-splines",
+    "Computer graphics"
+  ]
+}

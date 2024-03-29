@@ -1,0 +1,61 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# B-Splines
+
+B-splines, short for basis splines, are a powerful tool in the world of computer graphics and industrial design. They offer a unique set of properties that make them stand out from other spline types, particularly in their ability to achieve higher levels of continuity without sacrificing local control.
+
+## Achieving C² Continuity
+
+One of the most remarkable features of B-splines is their ability to achieve C² (acceleration) continuity. Recall from our discussion on [parametric continuity](/continuity/parametric-continuity) that C² continuity ensures a smooth transition not only in position and velocity but also in acceleration across the spline segments.
+
+<Callout>
+B-splines are the only uniform cubic splines that can achieve C² continuity while maintaining local control over the shape of the curve.
+</Callout>
+
+To understand how B-splines achieve this, let's take a look at their basis functions:
+
+```mermaid
+graph TD
+  A[P₀] --> B[P₁]
+  B --> C[P₂]
+  C --> D[P₃]
+  A --> E{t}
+  B --> E
+  C --> E
+  D --> E
+  E --> F[B(t)]
+```
+
+The basis functions of a B-spline are carefully constructed to ensure C² continuity across the entire spline. Unlike other spline types, such as [Bézier splines](/bezier-splines) or [Catmull-Rom splines](/extended-spline-universe/cardinal-catmull-rom-splines), B-splines do not necessarily pass through their control points. Instead, they use a weighted sum of these control points to generate a smooth curve.
+
+## Knot Vector and Local Control
+
+Another key aspect of B-splines is the concept of the knot vector. The knot vector is a non-decreasing sequence of real numbers that determines the influence of each control point on the resulting curve. By manipulating the knot vector, you can control the continuity and local behavior of the B-spline.
+
+<Steps>
+
+### Step 1
+
+Define the degree (k) of the B-spline and the number of control points (n).
+
+### Step 2
+
+Create a knot vector (t) with (n + k + 1) elements, where the first and last (k + 1) elements are typically repeated.
+
+### Step 3
+
+Adjust the knot vector to control the influence of each control point and the continuity of the resulting curve.
+
+</Steps>
+
+By carefully selecting the knot vector, you can maintain local control over the shape of the B-spline while ensuring the desired level of continuity.
+
+## Applications in Industrial Design
+
+B-splines find extensive use in industrial design, particularly in the creation of smooth, reflective surfaces such as car bodies or consumer electronics. Their ability to achieve G² (curvature) continuity makes them ideal for designing surfaces that require a high level of smoothness and visual appeal.
+
+<Callout>
+When working with B-splines in industrial design, it's essential to consider the [geometric continuity](/continuity/geometric-continuity) of the resulting surface to ensure a seamless and visually pleasing result.
+</Callout>
+
+By leveraging the power of B-splines, designers can create complex, organic shapes with a high degree of precision and control, making them an indispensable tool in the world of computer-aided design (CAD) and computer graphics.

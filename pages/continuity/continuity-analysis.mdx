@@ -1,0 +1,79 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Continuity Analysis Techniques
+
+Analyzing the continuity of splines is crucial for ensuring smooth transitions between curve segments and achieving desired visual outcomes. In this section, we'll explore various techniques for assessing the continuity of splines, including velocity graphs, curvature combs, and the reflection test.
+
+## Velocity Graphs
+
+Velocity graphs provide a visual representation of the rate of change of a spline's parameter with respect to time. By plotting the velocity vectors along the spline, we can identify discontinuities and assess the smoothness of the curve.
+
+<Steps>
+### Step 1
+
+Compute the first derivative of the spline at each point along the curve. The first derivative represents the velocity vector at each point.
+
+### Step 2
+
+Plot the velocity vectors along the spline, with the magnitude of the vectors represented by their length.
+
+### Step 3
+
+Observe the velocity graph for any sudden changes or discontinuities. A smooth velocity graph indicates C¹ continuity, while discontinuities suggest C⁰ continuity or lower.
+</Steps>
+
+<Callout type="info">
+Velocity graphs are particularly useful for analyzing the parametric continuity of splines, as they directly visualize the first derivative of the curve.
+</Callout>
+
+## Curvature Combs
+
+Curvature combs provide a geometric representation of the curvature along a spline. By visualizing the osculating circles at various points, we can assess the smoothness and fairness of the curve.
+
+<Steps>
+### Step 1
+
+Compute the curvature at each point along the spline using the formula:
+
+$\kappa = \frac{|\mathbf{v} \times \mathbf{a}|}{|\mathbf{v}|^3}$
+
+where $\mathbf{v}$ is the velocity vector and $\mathbf{a}$ is the acceleration vector.
+
+### Step 2
+
+At each point, construct the osculating circle with a radius of $\frac{1}{\kappa}$, centered at the point and oriented perpendicular to the curve.
+
+### Step 3
+
+Observe the curvature comb for any sudden changes or discontinuities in the size or orientation of the osculating circles. A smooth curvature comb indicates G² continuity, while discontinuities suggest G¹ continuity or lower.
+</Steps>
+
+<Callout type="info">
+Curvature combs are particularly useful for analyzing the geometric continuity of splines, as they visualize the second-order properties of the curve.
+</Callout>
+
+## Reflection Test
+
+The reflection test is a practical method for assessing the geometric continuity of splines in the context of reflective surfaces. By observing the reflection of a regular pattern on the surface, we can identify discontinuities and assess the smoothness of the curve.
+
+<Steps>
+### Step 1
+
+Create a virtual scene with a reflective surface defined by the spline and a regular pattern (e.g., a grid or dots) in the background.
+
+### Step 2
+
+Render the scene and observe the reflection of the pattern on the surface.
+
+### Step 3
+
+Look for any sudden changes, kinks, or discontinuities in the reflected pattern. A smooth reflection indicates G² continuity or higher, while discontinuities suggest G¹ continuity or lower.
+</Steps>
+
+<Callout type="info">
+The reflection test is particularly relevant for industrial design applications, such as designing car bodies or consumer products, where the smoothness of reflective surfaces is crucial.
+</Callout>
+
+By employing these continuity analysis techniques, you can effectively assess the smoothness and fairness of splines, ensuring that your curves meet the desired level of continuity for your specific application. Remember to consider both parametric and geometric continuity, as they provide complementary insights into the behavior of your splines.
+
+For a deeper understanding of the mathematical foundations of continuity, refer to the [Parametric Continuity](/continuity/parametric-continuity) and [Geometric Continuity](/continuity/geometric-continuity) subsections.

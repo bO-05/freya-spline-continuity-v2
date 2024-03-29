@@ -1,0 +1,37 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Spline Parameterization
+
+When working with [Bézier splines](/bezier-splines), understanding how to traverse the curves is crucial. This is where *spline parameterization* comes into play.
+
+In a single Bézier curve, the input parameter (often called $t$) ranges from 0 to 1, representing the start and end points of the curve. However, when dealing with a spline composed of multiple curves, we need to extend this concept to cover the entire spline.
+
+## Introducing the $u$ parameter
+
+To parameterize a Bézier spline, we introduce a new input parameter called $u$. The $u$ parameter spans the entire spline, with each curve occupying a specific interval.
+
+<Steps>
+### Step 1: Map curves to whole numbers
+
+We can easily map each curve in the spline to a whole number. For example, in a spline with three curves, the intervals would be [0, 1], [1, 2], and [2, 3].
+
+### Step 2: Determine the curve index and local $t$ value
+
+The integer part of the $u$ parameter represents the curve index, while the fractional part represents the local $t$ value within that curve.
+
+For instance, if $u = 1.5$, it means we're dealing with the second curve (index 1) and the local $t$ value is 0.5.
+</Steps>
+
+By using this parameterization method, we can easily traverse the entire spline and evaluate any point along its path.
+
+## Uniform splines and knot intervals
+
+In this article, we focus on *uniform splines*, where the intervals between the curves (called *knot intervals*) have the same length. This simplifies the parameterization process, as each curve maps directly to the unit interval [0, 1].
+
+<Callout type="info">
+Non-uniform splines, where the knot intervals vary in length, are more complex and will be covered in a future article.
+</Callout>
+
+By understanding spline parameterization, you can easily navigate through the curves of a Bézier spline and create smooth, continuous paths. This concept is fundamental to working with splines in various applications, such as computer graphics, animation, and design.
+
+Next, let's dive deeper into the [anatomy of a spline](/bezier-splines/spline-anatomy) to understand its components and how they work together.

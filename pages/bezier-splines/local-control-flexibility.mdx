@@ -1,0 +1,48 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Local Control and Flexibility
+
+One of the key advantages of using Bézier splines is the **local control** they provide over the shape of the curve. This means that when you modify a control point, only a specific portion of the spline is affected, leaving the rest of the curve unchanged. This is in contrast to [higher-degree Bézier curves](/bezier-curves/n-degree-bezier), where moving a single control point can alter the entire curve.
+
+Local control is achieved through the careful arrangement of control points and their influence on the spline. By analyzing the basis functions of a cubic Bézier spline, we can observe how each control point affects the curve:
+
+- The influence of a control point that lies between two curve segments is limited to those segments only.
+- A control point shared by two curve segments has twice the influence, but its effect is still confined to those two segments.
+
+This localized influence allows for precise control over the shape of the spline without unintended consequences on distant parts of the curve.
+
+<Callout emoji="💡">
+The local control property of Bézier splines is essential for creating complex shapes in various applications, such as defining roads in games or crafting intricate designs in vector graphics.
+</Callout>
+
+## Flexibility in Shaping Curves
+
+In addition to local control, Bézier splines offer remarkable flexibility in shaping curves. By strategically placing and adjusting the control points, you can create a wide range of shapes, from smooth curves to sharp corners. This flexibility is largely due to the arrangement of the two control points adjacent to each curve joint, known as **tangent points**.
+
+There are three common configurations for tangent points, each with different properties:
+
+1. **Split Tangents (Broken Tangents)**: By placing the tangent points in opposite directions, you can create sharp corners or cusps in the spline.
+
+2. **Aligned Tangents**: When the three points around a curve joint are aligned, the two curves will be tangent to each other at that joint, resulting in a smooth transition.
+
+3. **Mirrored Tangents**: If the tangent points are not only aligned but also equidistant from their shared control point, the spline will have [C¹ continuity](/continuity/parametric-continuity) at that joint.
+
+<Steps>
+
+### Approximating Shapes
+
+Bézier splines can closely approximate various shapes, including circles. Although they cannot create perfect circles, you can achieve a very close approximation by carefully placing the control points.
+
+### Creating Linear Segments
+
+If you want to include straight line segments in your Bézier spline, you can do so by placing the middle two control points at exactly one-third of the distance between the endpoints of the segment.
+
+</Steps>
+
+The flexibility of Bézier splines makes them a popular choice for a wide range of applications, such as:
+
+- Defining paths and curves in vector graphics software (e.g., Adobe Illustrator, Inkscape)
+- Creating smooth, scalable fonts using Bézier curves
+- Modeling 3D surfaces in computer-aided design (CAD) software
+
+By leveraging the local control and flexibility of Bézier splines, designers and artists can create complex, smooth shapes with precision and efficiency.

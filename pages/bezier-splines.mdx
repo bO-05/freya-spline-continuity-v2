@@ -1,0 +1,19 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Bézier Splines
+
+Bézier splines are a powerful solution to the limitations of [higher-degree Bézier curves](/bezier-curves/n-degree-bezier). By joining multiple Bézier curves together, we can create longer and more complex paths while maintaining local control and flexibility.
+
+Instead of relying on a single curve, Bézier splines consist of multiple Bézier curves connected end-to-end, sharing endpoints called **joints** or **knots**. This allows us to create intricate shapes that would be difficult or impossible to achieve with a single Bézier curve.
+
+<Callout type="info">
+Bézier splines are widely used in various fields, such as computer graphics, animation, and vector graphics, due to their versatility and ease of use.
+</Callout>
+
+To understand how Bézier splines work, let's break down their key components:
+
+- [Spline Parameterization](/bezier-splines/spline-parameterization): Understanding the concept of parameter space and its role in traversing splines.
+- [Anatomy of a Spline](/bezier-splines/spline-anatomy): Exploring the elements that make up a Bézier spline, including control points, curves, joints, and knot values.
+- [Local Control and Flexibility](/bezier-splines/local-control-flexibility): Discovering how Bézier splines provide local control over the shape of the curve and the flexibility to create a wide range of shapes.
+
+By combining multiple Bézier curves and leveraging the power of splines, we can create smooth, complex paths that are suitable for a variety of applications. In the following sections, we'll dive deeper into the intricacies of Bézier splines and explore their mathematical foundations.

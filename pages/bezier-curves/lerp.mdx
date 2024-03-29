@@ -1,0 +1,54 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Lerp
+
+Linear interpolation, or "lerp" for short, is the foundation upon which smooth curves are built. Lerping allows us to blend between two points, creating a straight line that connects them.
+
+## Understanding Lerp
+
+Lerp is a function that takes a single value, usually denoted as `t`, which ranges from 0 to 1. This `t` value determines how far along the line we want to interpolate between two points, `P0` and `P1`.
+
+<Steps>
+### Step 1
+
+When `t = 0`, the lerp function returns the starting point `P0`.
+
+### Step 2
+
+When `t = 1`, the lerp function returns the ending point `P1`.
+
+### Step 3
+
+For any value of `t` between 0 and 1, the lerp function returns a point along the line connecting `P0` and `P1`.
+</Steps>
+
+Mathematically, we can define lerp as:
+
+$lerp(t, P0, P1) = (1 - t) \cdot P0 + t \cdot P1$
+
+## Visual Representation
+
+```mermaid
+graph LR
+    P0[P0] -- t --> P[lerp(t, P0, P1)]
+    P -- 1-t --> P1[P1]
+```
+
+In this diagram, `t` represents the distance from `P0` to the interpolated point, while `1-t` represents the distance from the interpolated point to `P1`.
+
+<Callout type="info">
+Lerp is a linear function, meaning it creates straight lines between points. However, by combining multiple lerp functions, we can create more complex curves, such as [quadratic and cubic Bézier curves](/bezier-curves/quadratic-cubic-bezier).
+</Callout>
+
+## Example
+
+Let's say we have two points, `P0 = (0, 0)` and `P1 = (4, 6)`. If we want to find the point halfway between them, we can use lerp with `t = 0.5`:
+
+$lerp(0.5, (0, 0), (4, 6)) = (1 - 0.5) \cdot (0, 0) + 0.5 \cdot (4, 6)$
+$= 0.5 \cdot (0, 0) + 0.5 \cdot (4, 6)$
+$= (0, 0) + (2, 3)$
+$= (2, 3)$
+
+So, the point halfway between `(0, 0)` and `(4, 6)` is `(2, 3)`.
+
+By understanding lerp, we can now explore how it is used to create smooth curves, starting with [quadratic and cubic Bézier curves](/bezier-curves/quadratic-cubic-bezier).

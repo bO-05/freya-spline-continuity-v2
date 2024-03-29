@@ -1,0 +1,55 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Anatomy of a Spline
+
+As we dive deeper into the world of splines, it's crucial to understand the various components that make up these versatile tools. In this section, we'll break down the anatomy of a spline, exploring its key elements and their roles in creating smooth, controllable curves.
+
+## Control Points
+
+Control points are the foundation of any spline. These are the points that you, as the designer or developer, directly manipulate to define the shape of the curve. In the context of Bézier splines, control points can be thought of as "handles" that pull and shape the curve.
+
+<Callout>
+Control points are the primary means of interacting with and shaping a spline. By moving these points, you can create a wide variety of curves and shapes.
+</Callout>
+
+## Curves
+
+Curves are the actual path that the spline generates based on the control points. In the case of Bézier splines, each curve is a **Bézier curve** defined by a subset of the control points. These curves are pieced together to form the complete spline.
+
+The mathematical properties of the curves determine the smoothness and continuity of the spline. As we learned in the [Continuity](/continuity) section, different types of splines exhibit different levels of parametric and geometric continuity.
+
+## Joints (Knots)
+
+Joints, also known as knots, are the points where individual curves meet. In a Bézier spline, the joints are typically located at the control points shared by adjacent curves.
+
+The behavior of the spline at the joints is crucial for maintaining smoothness and continuity. As we explored in the [Continuity](/continuity) section, the arrangement of control points around the joints determines the level of parametric and geometric continuity achieved by the spline.
+
+## Knot Values and Intervals
+
+Knot values are the parameter values assigned to each joint in the spline. These values define the **parameterization** of the spline, which maps the input parameter space to the curves.
+
+In uniform splines, the knot intervals (the distances between consecutive knot values) are equal. This simplifies the mapping between the input parameter and the curves, as each curve can be easily associated with a unit interval [0, 1].
+
+<Callout>
+Knot values and intervals play a crucial role in the parameterization of the spline, determining how the input parameter space is mapped to the curves.
+</Callout>
+
+## Parameter Space
+
+The parameter space is the one-dimensional domain of the input values used to evaluate and traverse the spline. In the case of uniform Bézier splines, the parameter space is typically normalized to the range [0, n], where n is the number of curves in the spline.
+
+<Steps>
+### Step 1: Map the input parameter to the curve index
+
+The integer part of the input parameter identifies the specific curve within the spline.
+
+### Step 2: Determine the local parameter value
+
+The fractional part of the input parameter represents the local parameter value (t) within the identified curve, typically in the range [0, 1].
+</Steps>
+
+By understanding the parameter space and how it relates to the curves, you can efficiently traverse and evaluate the spline at any given point.
+
+---
+
+With a solid grasp of the anatomy of a spline, you'll be well-equipped to create, manipulate, and analyze these powerful tools in your projects. In the next section, we'll explore the [local control and flexibility](/bezier-splines/local-control-flexibility) offered by Bézier splines, and how they can be leveraged to create precise and intricate shapes.

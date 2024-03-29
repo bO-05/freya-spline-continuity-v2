@@ -1,0 +1,58 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Hermite Splines
+
+Hermite splines are a powerful tool in the world of computer graphics and animation, allowing for the creation of smooth, interpolating curves that pass through specific points with desired velocities. Unlike Bézier splines, which rely on control points to shape the curve, Hermite splines directly incorporate velocity information at each point, providing a more intuitive way to control the curve's behavior.
+
+## Defining Hermite Splines
+
+A Hermite spline is defined by a set of points $P_0, P_1, \ldots, P_n$ and their corresponding velocities $V_0, V_1, \ldots, V_n$. Each segment of the spline, spanning from $P_i$ to $P_{i+1}$, is a cubic polynomial curve that interpolates the endpoints and their velocities.
+
+The cubic Hermite curve for a single segment can be expressed using the following matrix form:
+
+$\begin{bmatrix} x(t) \\ y(t) \end{bmatrix} = \begin{bmatrix} t^3 & t^2 & t & 1 \end{bmatrix} \begin{bmatrix} 2 & -2 & 1 & 1 \\ -3 & 3 & -2 & -1 \\ 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} P_{i+1} \\ P_i \\ V_{i+1} \\ V_i \end{bmatrix}$
+
+where $t \in [0, 1]$ is the parameter along the curve segment.
+
+## Continuity Properties
+
+One of the key features of Hermite splines is their inherent [C¹ continuity](/continuity#parametric-continuity). By design, Hermite splines ensure that both the position and velocity are continuous across segment boundaries. This property makes Hermite splines particularly well-suited for creating smooth, visually pleasing curves and animations.
+
+<Callout>
+  Hermite splines are C¹ continuous, ensuring smooth transitions between curve segments in terms of both position and velocity.
+</Callout>
+
+## Constructing Hermite Splines
+
+To create a Hermite spline, follow these steps:
+
+<Steps>
+
+### Define the control points
+Specify the positions of the control points $P_0, P_1, \ldots, P_n$ that the spline should pass through.
+
+### Specify the velocities
+For each control point $P_i$, define the corresponding velocity $V_i$. These velocities determine the direction and magnitude of the curve's tangent at each point.
+
+### Compute the curve segments
+Using the matrix form of the cubic Hermite curve, calculate the curve segments between each pair of consecutive control points. The resulting curve will smoothly interpolate the control points and their velocities.
+
+</Steps>
+
+## Applications
+
+Hermite splines find wide applications in computer graphics and animation, including:
+
+- **Motion paths**: Hermite splines are commonly used to define smooth, controllable motion paths for objects or characters in animations.
+- **Interpolation**: When working with keyframed data, such as positions and velocities at specific times, Hermite splines provide a natural way to interpolate between the keyframes.
+- **Curve editing**: Hermite splines offer an intuitive approach to curve editing, as users can directly manipulate the positions and velocities of control points to shape the curve.
+
+## Comparison to Bézier Splines
+
+While both [Bézier splines](/bezier-splines) and Hermite splines are used to create smooth curves, they differ in their construction and control mechanisms:
+
+- Bézier splines use control points and tangent handles to indirectly shape the curve, while Hermite splines directly specify positions and velocities at the control points.
+- Hermite splines interpolate all control points, whereas Bézier splines only interpolate the endpoints of each curve segment.
+- Hermite splines provide C¹ continuity by default, while Bézier splines require specific tangent handle alignments to achieve [C¹ or G¹ continuity](/continuity).
+
+Ultimately, the choice between Hermite splines and Bézier splines depends on the specific requirements of the application and the desired level of control over the curve's shape and behavior.
